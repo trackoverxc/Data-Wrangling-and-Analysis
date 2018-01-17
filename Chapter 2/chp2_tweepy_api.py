@@ -1,6 +1,7 @@
 """ Simple tweepy stream listener for twitter API. """
 from __future__ import print_function
 import tweepy
+import csv
 
 try:
     from configparser import ConfigParser
@@ -9,8 +10,14 @@ except ImportError:
 
 class PythonListener(tweepy.StreamListener):
     """ Very simple tweepy stream listener. """
+	#csvFile = open('result.csv','a')
+	#csvWriter = csv.writer(csvFile)
     def on_status(self, tweet):
-        print(tweet.text)
+        print(tweet.text, tweet.author.screen_name)
+        f = open('sample.csv','a')
+        writer = csv.writer(f)
+        writer.writerow([tweet.text])
+        f.close()
 
     def on_error(self, msg):
         print('Error: %s', msg)
