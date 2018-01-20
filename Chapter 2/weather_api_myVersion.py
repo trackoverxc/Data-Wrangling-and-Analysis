@@ -17,5 +17,24 @@ def get_config():
 
 config = get_config()
 
-pprint(upcoming_forecast(
-config.get('openweather', 'api_key'),41.279507, -72.949183))
+resp = upcoming_forecast(
+config.get('openweather', 'api_key'),41.279507, -72.949183)
+pprint(resp)
+
+topLevel = resp['list'][0]
+dateTime = topLevel['dt_txt']
+weather = topLevel['weather'][0]
+descriptionWeather = weather['description']
+summaryWeather = weather['main']
+windSpeed = top]Level['wind']['speed']
+
+for period in resp['list']:
+    dateTime = period['dt_txt']
+    weather = period['weather'][0]
+    descriptionWeather = weather['description']
+    summaryWeather = weather['main']
+    windSpeed = period['wind']['speed']
+    print("Weather for",dateTime,"is",summaryWeather.lower(),"with",windSpeed,"mph winds")
+    index += 1
+print(windSpeed)
+pprint(topLevel)
