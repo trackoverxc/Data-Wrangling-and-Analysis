@@ -26,7 +26,7 @@ dateTime = topLevel['dt_txt']
 weather = topLevel['weather'][0]
 descriptionWeather = weather['description']
 summaryWeather = weather['main']
-windSpeed = top]Level['wind']['speed']
+windSpeed = topLevel['wind']['speed']
 
 for period in resp['list']:
     dateTime = period['dt_txt']
