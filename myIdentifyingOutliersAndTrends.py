@@ -34,3 +34,10 @@ pct_change_df = df.copy()
 for yr in yrs:
     pct_change_df[yr] = (df[yr] - df[str(int(yr)-1)]) / df[str(int(yr)-1)]
 pct_change_df.head()
+[(yr, abs(pct_change_df[yr].max() - pct_change_df[yr].min())) for yr in yrs]
+pct_change_df['2010'].std()
+pct_change_df['2010'].mean()
+pct_change_df[pct_change_df['2010'].abs() >= (pct_change_df['2010'].mean() + 2*pct_change_df['2010'].std())]
+pct_change_df['2010'].sort_values()
+pct_change_df[pct_change_df['2010'] < 0]
+pct_change_df[pct_change_df['2010'] > 0.4]
