@@ -6,14 +6,9 @@ from multiprocessing import Pool
 import logging
 
 def get_config():
-    print('def get_config():')
-    cwd = os.getcwd()
-    os.chdir(r'C:\Users\drose\Documents\GitHub\Data-Wrangling-and-Analysis')
     conf = ConfigParser()
     conf.read('prod.cfg')
     print('conf.read success')
-    os.chdir(cwd)
-    print('cwd change back success')
     return conf
 
 def get_lat_long(config, address):
